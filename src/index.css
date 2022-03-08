@@ -1,13 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-color: #516d98;
+}
+/* loading page style */
+#loading {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 25vh;
+  border: solid 2px #b2a9a9;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  border-radius: 10px;
+
+  background-color: white;
+}
+/* grid style */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 20px;
+}
+/* article card style */
+.card-header {
+  border-bottom: solid black 1px;
+  color: black;
+  text-align: center;
+  position: relative;
+}
+.card-info {
+  position: relative;
+  bottom: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.article-card {
+  width: auto;
+  border-radius: 5px;
+  padding: 6px;
+  margin: 15px;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vote-count {
+  margin-left: 10px;
+}
+/* heading style */
+header {
+  background-color: white;
+  margin-top: 0px;
+  margin: 0;
+}
+#home {
+  margin: 0;
+  padding-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+#title {
+  padding-left: 10px;
+  font-size: 60px;
+  margin: 0;
+  color: white;
+  background-color: #b2a9a9;
+  border-top: black solid 3px;
+}
+#topic-bar {
+  background-color: #b2a9a9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  border-top: black solid 3px;
+  border-bottom: black solid 3px;
+}
+.clicked-topic-link {
+  color: black;
+  font-size: 30px;
+  width: 30vw;
+  text-decoration: none;
+}
+.topic-links {
+  color: white;
+  font-size: 30px;
+  width: 30vw;
+  text-decoration: none;
+}
+.topic-links:hover {
+  color: black;
 }
