@@ -6,7 +6,10 @@ export default function ArticleCard({ article }) {
   date = date.toDateString();
   return (
     <div className="article-card">
-      <Link className="card-header" to="/article">
+      <Link
+        className="card-header"
+        to={`/articles/${article.topic}/${article.article_id}`}
+      >
         <h3>{article.title}</h3>
       </Link>
       <div className="card-info">

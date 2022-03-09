@@ -7,18 +7,7 @@ export default function TopicArticles() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  function CheckIfLoading() {
-    if (isLoading) {
-      return <h3 id="loading">Loading...</h3>;
-    }
-    return (
-      <div className="cards">
-        {articles.map((article) => {
-          return <ArticleCard article={article} key={article.article_id} />;
-        })}
-      </div>
-    );
-  }
+
   useEffect(() => {
     setIsLoading(true);
     getArticlesByTopic(topic).then((articlesFromApi) => {
@@ -26,10 +15,20 @@ export default function TopicArticles() {
       setIsLoading(false);
     });
   }, [topic]);
+
+  if (isLoading) {
+    <Topics topic={topic} />;
+    return <h3 id="loading">Loading...</h3>;
+  }
+
   return (
     <>
-      <Topics topic={topic} />
-      <CheckIfLoading />
+      <Topics topic={topic} />;
+      <div className="cards">
+        {articles.map((article) => {
+          return <ArticleCard article={article} key={article.article_id} />;
+        })}
+      </div>
     </>
   );
 }
