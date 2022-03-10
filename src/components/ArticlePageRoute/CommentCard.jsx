@@ -1,5 +1,3 @@
-import Votes from "../ArticlesRoute/ArticleVotes";
-
 export default function CommentCard({ comment }) {
   let date = new Date(comment.created_at);
   date = date.toDateString();
@@ -9,7 +7,7 @@ export default function CommentCard({ comment }) {
       <p>{comment.author}</p>
       <div className="comment-card-info">
         <p>{date}</p>
-        <Votes votes={comment.votes} />
+        <span>{comment.votes}</span>
       </div>
     </div>
   );

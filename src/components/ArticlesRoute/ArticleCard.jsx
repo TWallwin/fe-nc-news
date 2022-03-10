@@ -17,7 +17,7 @@ export default function ArticleCard({ article }) {
           {article.author} || {article.topic}
         </p>
         <p>{date}</p>
-        <ArticleVotes votes={article.votes} />
+        <ArticleVotes votes={article.votes} articleId={article.article_id} />
       </div>
     </div>
   );
