@@ -1,28 +1,22 @@
 import { Link } from "react-router-dom";
 
-export default function Topics(props) {
-  const { topic } = props;
-
+export default function TopicsBar({ topic, setTopic }) {
   return (
     <div id="topic-bar">
-      <Link
-        className={"coding" === topic ? "clicked-topic-link" : "topic-links"}
-        to="/articles/coding"
-      >
-        Coding
-      </Link>
-      <Link
-        className={"football" === topic ? "clicked-topic-link" : "topic-links"}
-        to="/articles/football"
-      >
-        Football
-      </Link>
-      <Link
-        className={"cooking" === topic ? "clicked-topic-link" : "topic-links"}
-        to="/articles/cooking"
-      >
-        Cooking
-      </Link>
+      {["coding", "football", "cooking"].map((str, index) => {
+        return (
+          <Link
+            key={index}
+            className={str === topic ? "clicked-topic-link" : "topic-links"}
+            to={`/articles/${str}`}
+            onClick={() => {
+              setTopic(str);
+            }}
+          >
+            {str}
+          </Link>
+        );
+      })}
     </div>
   );
 }

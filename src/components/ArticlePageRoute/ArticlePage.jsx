@@ -1,4 +1,3 @@
-import TopicBar from "../TopicsBar";
 import ArticleCard from "../ArticlesRoute/ArticleCard";
 import ArticleComments from "./ArticleComments";
 import { getArticleById } from "../../api";
@@ -14,7 +13,6 @@ export default function ArticlePage() {
   }, [id]);
   return (
     <>
-      <TopicBar />
       <div className="article">
         <ArticleCard article={article} />
         <div className="article-body">{article.body}</div>
