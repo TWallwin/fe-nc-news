@@ -28,7 +28,13 @@ export default function TopicArticles() {
   if (isLoading) {
     return <h3 id="loading">Loading...</h3>;
   }
-
+  function toggleOrder() {
+    if (order === "ASC") {
+      setOrder("DESC");
+    } else {
+      setOrder("ASC");
+    }
+  }
   return (
     <>
       <select
@@ -42,16 +48,14 @@ export default function TopicArticles() {
         <option value="comment_count">Comment Count</option>
         <option value="votes">Votes</option>
       </select>
-      <select
-        id="order-dropdown"
-        onChange={(e) => {
-          setOrder(e.target.value);
+      <button
+        onClick={() => {
+          toggleOrder();
         }}
-        value={order}
+        className="order-button"
       >
-        <option value="ASC">Asc</option>
-        <option value="DESC">Desc</option>
-      </select>
+        Order
+      </button>
       <div className="cards">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
