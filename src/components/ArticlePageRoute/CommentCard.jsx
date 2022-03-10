@@ -9,7 +9,7 @@ export default function CommentCard({ comment }) {
       <p>{comment.author}</p>
       <div className="comment-card-info">
         <p>{date}</p>
-        <Votes votes={comment.votes} />
+        <span>{comment.votes}</span>
       </div>
     </div>
   );
