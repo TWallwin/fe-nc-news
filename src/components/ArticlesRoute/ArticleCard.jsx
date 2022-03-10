@@ -14,7 +14,8 @@ export default function ArticleCard({ article }) {
       </Link>
       <div className="card-info">
         <p>
-          {article.author} || {article.topic}
+          {article.author} || {article.topic} || {article.comment_count}{" "}
+          comments
         </p>
         <p>{date}</p>
         <ArticleVotes votes={article.votes} articleId={article.article_id} />

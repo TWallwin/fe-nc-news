@@ -1,13 +1,16 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://tom-nc-news.herokuapp.com";
-export function getAllArticles() {
-  return axios.get("/api/articles").then((res) => {
-    return res.data.articles;
-  });
-}
-export function getArticlesByTopic(topic) {
+
+export function getAllArticles(order, sortBy) {
   return axios
-    .get(`/api/articles?topic=${topic}`)
+    .get(`/api/articles?sort_by=${sortBy}&order=${order}`)
+    .then((res) => {
+      return res.data.articles;
+    });
+}
+export function getArticlesByTopic(topic, order, sortBy) {
+  return axios
+    .get(`/api/articles?topic=${topic}&sort_by=${sortBy}&order=${order}`)
     .then((res) => {
       return res.data.articles;
     })

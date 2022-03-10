@@ -7,22 +7,23 @@ export default function TopicArticles() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [topicSort, setTopicSort] = useState("date");
-  const [order, setOrder] = useState("");
+  const [sortBy, setsortBy] = useState("created_at");
+  const [order, setOrder] = useState("DESC");
   useEffect(() => {
     if (topic) {
-      getArticlesByTopic(topic).then((articlesFromApi) => {
+      getArticlesByTopic(topic, order, sortBy).then((articlesFromApi) => {
         setArticles(articlesFromApi);
 
         setIsLoading(false);
       });
     } else {
-      getAllArticles().then((articlesFromApi) => {
+      getAllArticles(order, sortBy).then((articlesFromApi) => {
         setArticles(articlesFromApi);
+
         setIsLoading(false);
       });
     }
-  }, [topic]);
+  }, [topic, sortBy, order]);
 
   if (isLoading) {
     return <h3 id="loading">Loading...</h3>;
@@ -33,17 +34,23 @@ export default function TopicArticles() {
       <select
         id="topic-dropdown"
         onChange={(e) => {
-          setTopicSort(e.target.value);
+          setsortBy(e.target.value);
         }}
-        value={topicSort}
+        value={sortBy}
       >
-        <option value="date">Date</option>
-        <option value="comments">Comment Count</option>
+        <option value="created_at">Date</option>
+        <option value="comment_count">Comment Count</option>
         <option value="votes">Votes</option>
       </select>
-      <select id="order-dropdown">
-        <option value="asc">Asc</option>
-        <option value="desc">Desc</option>
+      <select
+        id="order-dropdown"
+        onChange={(e) => {
+          setOrder(e.target.value);
+        }}
+        value={order}
+      >
+        <option value="ASC">Asc</option>
+        <option value="DESC">Desc</option>
       </select>
       <div className="cards">
         {articles.map((article) => {
