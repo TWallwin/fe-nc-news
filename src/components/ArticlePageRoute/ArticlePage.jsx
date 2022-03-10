@@ -9,8 +9,6 @@ export default function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // setIsLoading(true);
-
     getArticleById(id).then((resArticle) => {
       setArticle(resArticle);
       setIsLoading(false);
