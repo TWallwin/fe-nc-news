@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getAllArticles, getArticlesByTopic } from "../../api";
 import ArticleCard from "./ArticleCard";
+
 export default function TopicArticles() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     if (topic) {
       getArticlesByTopic(topic).then((articlesFromApi) => {
         setArticles(articlesFromApi);

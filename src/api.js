@@ -24,3 +24,18 @@ export function getArticleComments(id) {
     return res.data.comments;
   });
 }
+
+export function updateArticleVotes(id, inc) {
+  return axios.patch(`/api/articles/${id}`, { inc_votes: inc });
+}
+
+export function postComment(articleId, body, username) {
+  return axios
+    .post(`/api/articles/${articleId}/comments`, {
+      username: username,
+      body: body
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

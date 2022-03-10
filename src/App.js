@@ -1,21 +1,23 @@
 import Header from "./components/Header";
-
-import { Routes, Route } from "react-router-dom";
+import { UserContext } from "./contexts/UserContexts";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ArticlePage from "./components/ArticlePageRoute/ArticlePage";
-import { BrowserRouter } from "react-router-dom";
 import Articles from "./components/ArticlesRoute/Articles";
-
+import { useState } from "react";
 function App() {
+  const [user, setUser] = useState("tickle122");
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Articles />} />
-          <Route path="/articles/:topic/:id" element={<ArticlePage />} />
-          <Route path="/articles/:topic" element={<Articles />} />
-        </Routes>
-      </div>
+      <UserContext.Provider value={{ user, setUser }}>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Articles />} />
+            <Route path="/articles/:topic/:id" element={<ArticlePage />} />
+            <Route path="/articles/:topic" element={<Articles />} />
+          </Routes>
+        </div>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }

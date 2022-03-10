@@ -1,5 +1,3 @@
-import Votes from "../ArticlesRoute/ArticleVotes";
-
 export default function CommentCard({ comment }) {
   let date = new Date(comment.created_at);
   date = date.toDateString();

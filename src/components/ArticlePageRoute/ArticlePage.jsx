@@ -6,11 +6,20 @@ import { useParams } from "react-router-dom";
 export default function ArticlePage() {
   const { id } = useParams();
   const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    // setIsLoading(true);
+
     getArticleById(id).then((resArticle) => {
       setArticle(resArticle);
+      setIsLoading(false);
     });
   }, [id]);
+
+  if (isLoading) {
+    return <h3 id="loading">Loading...</h3>;
+  }
   return (
     <>
       <div className="article">
