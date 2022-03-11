@@ -26,9 +26,16 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
-.order-button {
+/* sorting */
+.order-button-up {
   padding: 5px;
   margin-left: 5px;
+  content: str("sort up");
+}
+.order-button-down {
+  padding: 5px;
+  margin-left: 5px;
+  content: str("sort down");
 }
 /* article card style */
 .card-header {

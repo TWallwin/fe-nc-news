@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getAllArticles, getArticlesByTopic } from "../../api";
 import ArticleCard from "./ArticleCard";
 
-export default function TopicArticles() {
+export default function Articles() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +28,7 @@ export default function TopicArticles() {
   if (isLoading) {
     return <h3 id="loading">Loading...</h3>;
   }
-  function toggleOrder() {
+  function toggleOrder(e) {
     if (order === "ASC") {
       setOrder("DESC");
     } else {
@@ -49,12 +49,10 @@ export default function TopicArticles() {
         <option value="votes">Votes</option>
       </select>
       <button
-        onClick={() => {
-          toggleOrder();
-        }}
-        className="order-button"
+        onClick={toggleOrder}
+        className={order === "DESC" ? "order-button-down" : "order-button-up"}
       >
-        Order
+        {order}
       </button>
       <div className="cards">
         {articles.map((article) => {
