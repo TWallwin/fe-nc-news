@@ -28,7 +28,7 @@ export default function Articles() {
   if (isLoading) {
     return <h3 id="loading">Loading...</h3>;
   }
-  function toggleOrder(e) {
+  function toggleOrder() {
     if (order === "ASC") {
       setOrder("DESC");
     } else {
@@ -37,23 +37,25 @@ export default function Articles() {
   }
   return (
     <>
-      <select
-        id="topic-dropdown"
-        onChange={(e) => {
-          setsortBy(e.target.value);
-        }}
-        value={sortBy}
-      >
-        <option value="created_at">Date</option>
-        <option value="comment_count">Comment Count</option>
-        <option value="votes">Votes</option>
-      </select>
-      <button
-        onClick={toggleOrder}
-        className={order === "DESC" ? "order-button-down" : "order-button-up"}
-      >
-        {order}
-      </button>
+      <div className="sort-div">
+        <select
+          id="topic-dropdown"
+          onChange={(e) => {
+            setsortBy(e.target.value);
+          }}
+          value={sortBy}
+        >
+          <option value="created_at">Date</option>
+          <option value="comment_count">Comment Count</option>
+          <option value="votes">Votes</option>
+        </select>
+        <button
+          onClick={toggleOrder}
+          className={order === "DESC" ? "order-button-down" : "order-button-up"}
+        >
+          {order}
+        </button>
+      </div>
       <div className="cards">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;

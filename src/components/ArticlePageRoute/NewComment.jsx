@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContexts";
 
 export default function NewComment(props) {
   const { user } = useContext(UserContext);
-  // const { user } = useState("tickle122");
+
   const [commentBody, setCommentBody] = useState("");
   const { id } = useParams();
 

@@ -11,11 +11,13 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <div className="App">
           <Header />
-          <Routes>
-            <Route path="/" element={<Articles />} />
-            <Route path="/articles/:topic/:id" element={<ArticlePage />} />
-            <Route path="/articles/:topic" element={<Articles />} />
-          </Routes>
+          <div className="body-render">
+            <Routes>
+              <Route path="/" element={<Articles />} />
+              <Route path="/articles/:topic/:id" element={<ArticlePage />} />
+              <Route path="/articles/:topic" element={<Articles />} />
+            </Routes>
+          </div>
         </div>
       </UserContext.Provider>
     </BrowserRouter>

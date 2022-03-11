@@ -33,12 +33,11 @@ export function updateArticleVotes(id, inc) {
 }
 
 export function postComment(articleId, body, username) {
-  return axios
-    .post(`/api/articles/${articleId}/comments`, {
-      username: username,
-      body: body
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return axios.post(`/api/articles/${articleId}/comments`, {
+    username: username,
+    body: body
+  });
+}
+export function deleteComment(id) {
+  return axios.delete(`/api/comments/${id}`);
 }
