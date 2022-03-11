@@ -8,6 +8,14 @@ body {
   padding: 0;
   background-color: #516d98;
 }
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas:
+    "header"
+    "body";
+}
 
 /* loading style */
 #loading {
@@ -25,6 +33,49 @@ body {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+/* sorting */
+.arrow {
+  border: solid black;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 3px;
+  padding-top: -20px;
+  margin-right: 10px;
+  margin-left: 30px;
+  width: 30px;
+  height: 30px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.sort-div {
+  flex-direction: column;
+  display: flex;
+  justify-content: right;
+  margin: 1rem;
+}
+.sort-box {
+  border: black 2px solid;
+  border-radius: 10px;
+  background-color: white;
+  padding: 5px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.order-button-up {
+  border: 2px solid black;
+  width: 100px;
+  padding: 5px;
+  margin-left: 5px;
+}
+.order-button-down {
+  border: 2px solid black;
+  padding: 5px;
+  width: 100px;
+  margin-left: 5px;
 }
 /* article card style */
 .card-header {
@@ -55,14 +106,21 @@ body {
 .vote-button {
   width: 20px;
   height: 20px;
-  background-color: purple;
+  background-color: rgb(136, 68, 136);
   color: white;
+}
+.body-render {
+  grid-area: body;
+  overflow: scroll;
 }
 /* heading style */
 header {
+  grid-area: header;
   background-color: white;
   margin-top: 0px;
   margin: 0;
+
+  top: 0;
 }
 #home {
   margin: 0;
@@ -78,6 +136,9 @@ header {
   color: white;
   background-color: #b2a9a9;
   border-top: black solid 3px;
+}
+#topic-dropdown {
+  border: solid black 2px;
 }
 #topic-bar {
   background-color: #b2a9a9;
@@ -128,10 +189,12 @@ header {
 }
 .comment-body {
   margin-bottom: 5px;
+  margin-top: 12px;
 }
 .new-comment-input {
   border: 2px solid black;
   width: 50vw;
+  height: 5rem;
 }
 .comments-heading {
   display: flex;
@@ -141,6 +204,42 @@ header {
 .create-comment-button {
   padding: 5px;
   border: black solid 2px;
+}
+.delete-comment-text {
+  text-align: center;
+}
+.delete-comment-button {
+  padding: 5px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border: black solid 2px;
+  background-color: lightcoral;
+}
+.delete-comment-button:hover {
+  background-color: rgb(233, 188, 188);
+}
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.yes-no-buttons {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border: black solid 2px;
+  padding: 5px;
+}
+.popup-button-div {
+  display: flex;
+  justify-content: space-around;
+}
+.delete-comment-text {
+  margin: 20px;
+}
+.delete-popup-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 /* pop-up styling */
 .popup-box {
@@ -158,10 +257,10 @@ header {
   height: auto;
   max-height: 70vh;
   margin-top: calc(100vh - 85vh - 20px);
-  background: lightblue;
+  background: rgb(204, 231, 240);
   border-radius: 4px;
   padding: 20px;
-  border: 2px solid #999;
+  border: 3px solid black;
   overflow: auto;
   display: flex;
   justify-content: space-around;
@@ -185,4 +284,23 @@ header {
 .submit-comment-button {
   border: solid 2px black;
   width: 100px;
+  margin: 20px;
+}
+.new-comment-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 350px) {
+  .topic-links {
+    font-size: 20px;
+  }
+  .clicked-topic-link {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .App {
+    display: block;
+  }
 }
