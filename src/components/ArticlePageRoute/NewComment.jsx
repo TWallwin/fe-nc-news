@@ -19,22 +19,24 @@ export default function NewComment(props) {
         <button className="close-icon" onClick={props.handleClose}>
           x
         </button>
-        <input
-          value={commentBody}
-          className="new-comment-input"
-          type="text"
-          onChange={(e) => {
-            setCommentBody(e.target.value);
-          }}
-        />
-        <button
-          className="submit-comment-button"
-          onClick={() => {
-            submitComment();
-          }}
-        >
-          Submit
-        </button>
+        <div className="new-comment-box">
+          <input
+            value={commentBody}
+            className="new-comment-input"
+            type="text"
+            onChange={(e) => {
+              setCommentBody(e.target.value);
+            }}
+          />
+          <button
+            className="submit-comment-button"
+            onClick={() => {
+              submitComment();
+            }}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

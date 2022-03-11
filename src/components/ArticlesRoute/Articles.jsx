@@ -9,6 +9,7 @@ export default function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setsortBy] = useState("created_at");
   const [order, setOrder] = useState("DESC");
+  const [toggleSort, setToggleSort] = useState(false);
   useEffect(() => {
     if (topic) {
       getArticlesByTopic(topic, order, sortBy).then((articlesFromApi) => {
@@ -38,23 +39,27 @@ export default function Articles() {
   return (
     <>
       <div className="sort-div">
-        <select
-          id="topic-dropdown"
-          onChange={(e) => {
-            setsortBy(e.target.value);
-          }}
-          value={sortBy}
-        >
-          <option value="created_at">Date</option>
-          <option value="comment_count">Comment Count</option>
-          <option value="votes">Votes</option>
-        </select>
-        <button
-          onClick={toggleOrder}
-          className={order === "DESC" ? "order-button-down" : "order-button-up"}
-        >
-          {order}
-        </button>
+        <div className="sort-box">
+          <select
+            id="topic-dropdown"
+            onChange={(e) => {
+              setsortBy(e.target.value);
+            }}
+            value={sortBy}
+          >
+            <option value="created_at">Date</option>
+            <option value="comment_count">Comment Count</option>
+            <option value="votes">Votes</option>
+          </select>
+          <button
+            onClick={toggleOrder}
+            className={
+              order === "DESC" ? "order-button-down" : "order-button-up"
+            }
+          >
+            {order}
+          </button>
+        </div>
       </div>
       <div className="cards">
         {articles.map((article) => {
