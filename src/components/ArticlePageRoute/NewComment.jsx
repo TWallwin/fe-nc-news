@@ -5,12 +5,17 @@ import { UserContext } from "../../contexts/UserContexts";
 
 export default function NewComment(props) {
   const { user } = useContext(UserContext);
-
+  const [emptyBody, setEmptyBody] = useState(false);
   const [commentBody, setCommentBody] = useState("");
   const { id } = useParams();
 
   function submitComment() {
+    if (commentBody === "") {
+      setEmptyBody(true);
+      return;
+    }
     props.handleClose();
+    setEmptyBody(false);
     postComment(id, commentBody, user);
   }
   return (
@@ -36,6 +41,13 @@ export default function NewComment(props) {
           >
             Submit
           </button>
+          {emptyBody ? (
+            <span className="comment-error">
+              Please enter a comment before submitting
+            </span>
+          ) : (
+            <span></span>
+          )}
         </div>
       </div>
     </div>

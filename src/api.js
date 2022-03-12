@@ -13,8 +13,7 @@ export function getArticlesByTopic(topic, order, sortBy) {
     .get(`/api/articles?topic=${topic}&sort_by=${sortBy}&order=${order}`)
     .then((res) => {
       return res.data.articles;
-    })
-    .catch(console.log);
+    });
 }
 export function getArticleById(id) {
   return axios.get(`/api/articles/${id}`).then((res) => {

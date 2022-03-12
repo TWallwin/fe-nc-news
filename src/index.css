@@ -304,3 +304,10 @@ header {
     display: block;
   }
 }
+.error {
+  margin: 20px;
+  padding: 10px;
+}
+.comment-error {
+  color: red;
+}

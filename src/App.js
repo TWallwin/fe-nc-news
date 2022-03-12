@@ -16,6 +16,10 @@ function App() {
               <Route path="/" element={<Articles />} />
               <Route path="/articles/:topic/:id" element={<ArticlePage />} />
               <Route path="/articles/:topic" element={<Articles />} />
+              <Route
+                path="/*"
+                element={<h1 className="path-error">404:path not found</h1>}
+              />
             </Routes>
           </div>
         </div>

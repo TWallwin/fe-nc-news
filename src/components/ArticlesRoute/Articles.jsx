@@ -9,23 +9,40 @@ export default function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setsortBy] = useState("created_at");
   const [order, setOrder] = useState("DESC");
-  const [toggleSort, setToggleSort] = useState(false);
+  const [articleError, setArticleError] = useState(false);
+
   useEffect(() => {
     if (topic) {
-      getArticlesByTopic(topic, order, sortBy).then((articlesFromApi) => {
-        setArticles(articlesFromApi);
-
-        setIsLoading(false);
-      });
+      getArticlesByTopic(topic, order, sortBy)
+        .then((articlesFromApi) => {
+          setArticles(articlesFromApi);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setArticleError(err.message);
+          setArticles([]);
+          setIsLoading(false);
+        });
     } else {
-      getAllArticles(order, sortBy).then((articlesFromApi) => {
-        setArticles(articlesFromApi);
+      getAllArticles(order, sortBy)
+        .then((articlesFromApi) => {
+          setArticles(articlesFromApi);
 
-        setIsLoading(false);
-      });
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setArticleError({ message: err.message });
+          setArticles([]);
+          setIsLoading(false);
+        });
     }
   }, [topic, sortBy, order]);
 
+  if (articleError) {
+    return (
+      <h1 className="error">{JSON.stringify(articleError)} - invalid path</h1>
+    );
+  }
   if (isLoading) {
     return <h3 id="loading">Loading...</h3>;
   }
