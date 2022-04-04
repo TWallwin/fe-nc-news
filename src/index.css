@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: Tahoma, sans-serif;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -109,6 +111,9 @@ body {
   background-color: rgb(136, 68, 136);
   color: white;
 }
+.vote-button:hover {
+  background-color: rgb(178, 132, 178);
+}
 .body-render {
   grid-area: body;
   overflow: scroll;
@@ -119,7 +124,7 @@ header {
   background-color: white;
   margin-top: 0px;
   margin: 0;
-
+  letter-spacing: 0.2rem;
   top: 0;
 }
 #home {
@@ -146,6 +151,7 @@ header {
   flex-direction: row;
   justify-content: space-evenly;
   margin: 0;
+  padding-bottom: 3px;
   border-top: black solid 3px;
   border-bottom: black solid 3px;
 }
@@ -154,12 +160,14 @@ header {
   font-size: 30px;
   width: 30vw;
   text-decoration: none;
+  letter-spacing: normal;
 }
 .topic-links {
   color: white;
   font-size: 30px;
   width: 30vw;
   text-decoration: none;
+  letter-spacing: normal;
 }
 .topic-links:hover {
   color: black;
@@ -204,6 +212,9 @@ header {
 .create-comment-button {
   padding: 5px;
   border: black solid 2px;
+}
+.create-comment-button:hover {
+  background-color: rgb(200, 246, 246);
 }
 .delete-comment-text {
   text-align: center;
