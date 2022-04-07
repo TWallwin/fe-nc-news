@@ -10,9 +10,9 @@ export default function Header() {
         onClick={() => {
           setTopic(null);
         }}
+        id="header-link"
       >
         <h1 id="home">NC-News</h1>
-        <h1 id="title">Articles</h1>
       </Link>
       <TopicsBar topic={topic} setTopic={setTopic} />
     </header>
