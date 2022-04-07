@@ -16,7 +16,9 @@ export default function NewComment(props) {
     }
     props.handleClose();
     setEmptyBody(false);
-    postComment(id, commentBody, user);
+    postComment(id, commentBody, user).then(() => {
+      props.setCommentPosted(true);
+    });
   }
   return (
     <div className="popup-box">
@@ -25,10 +27,9 @@ export default function NewComment(props) {
           x
         </button>
         <div className="new-comment-box">
-          <input
+          <textarea
             value={commentBody}
             className="new-comment-input"
-            type="text"
             onChange={(e) => {
               setCommentBody(e.target.value);
             }}

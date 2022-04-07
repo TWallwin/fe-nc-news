@@ -15,7 +15,7 @@ export default function ArticleVotes(props) {
   return (
     <div className="article-votes">
       <button
-        className="vote-button"
+        className="vote-button up"
         disabled={change === 1}
         onClick={() => {
           voteButtonClicked(1);
@@ -25,7 +25,7 @@ export default function ArticleVotes(props) {
       </button>
       {error.toString()}
       <button
-        className="vote-button"
+        className="vote-button down"
         disabled={change === -1}
         onClick={() => {
           voteButtonClicked(-1);

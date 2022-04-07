@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { UserContext } from "./contexts/UserContexts";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import ArticlePage from "./components/ArticlePageRoute/ArticlePage";
 import Articles from "./components/ArticlesRoute/Articles";
 import { useState } from "react";
@@ -18,7 +18,15 @@ function App() {
               <Route path="/articles/:topic" element={<Articles />} />
               <Route
                 path="/*"
-                element={<h1 className="path-error">404:path not found</h1>}
+                element={
+                  <>
+                    <h1 className="error">404:path not found</h1>
+                    <Link to="/">
+                      {" "}
+                      <h1 className="error">Go Back!</h1>
+                    </Link>
+                  </>
+                }
               />
             </Routes>
           </div>
