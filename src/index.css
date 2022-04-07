@@ -1,9 +1,14 @@
+@font-face {
+  font-family: "texat";
+  src: "./fonts/TEXAT BOLD PERSONAL USE___.otf";
+}
 * {
   margin: 0;
   padding: 0;
   border: 0;
   font-family: Tahoma, sans-serif;
 }
+
 a {
   text-decoration: none;
 }
@@ -11,7 +16,7 @@ a {
 body {
   margin: 0;
   padding: 0;
-  background-color: #516d98;
+  background-color: #b3b5a758;
 }
 .App {
   height: 100vh;
@@ -27,7 +32,7 @@ body {
   text-align: center;
   font-size: 30px;
   margin-top: 25vh;
-  border: solid 2px #b2a9a9;
+  border: solid 2px black;
   margin-left: 25vw;
   margin-right: 25vw;
   border-radius: 10px;
@@ -51,7 +56,9 @@ body {
   flex-direction: column;
   display: flex;
   justify-content: right;
-  margin: 1rem;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .sort-box {
   border: black 2px solid;
@@ -59,10 +66,9 @@ body {
   background-color: white;
   padding: 5px;
   display: flex;
+  margin: 3px;
   justify-content: space-around;
   margin-bottom: -7.5px;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 .order-button-up {
@@ -117,7 +123,7 @@ body {
   width: auto;
   border-radius: 5px;
   padding: 6px;
-  margin: 7.5px;
+  margin: 3px;
   border: black 2px solid;
 
   background-color: white;
@@ -132,8 +138,8 @@ body {
   font-weight: bold;
   width: 30px;
   height: 30px;
-  background-color: rgb(136, 68, 136);
-  color: white;
+  background-color: #92dce5;
+  color: black;
   border: black solid 2px;
 }
 .up {
@@ -147,7 +153,7 @@ body {
   border-top-right-radius: 5px;
 }
 .vote-button:hover {
-  background-color: rgb(178, 132, 178);
+  background-color: #92dbe56a;
 }
 .body-render {
   grid-area: body;
@@ -163,16 +169,9 @@ header {
   letter-spacing: 0.2rem;
   top: 0;
 }
-header-link:link {
-  text-decoration: none;
-}
-header-link:active {
-  text-decoration: none;
-}
-header-link:visited {
-  text-decoration: none;
-}
+
 #home {
+  font-family: texat;
   font-size: 60px;
   margin: 0;
   padding-left: 37.5px;
@@ -187,7 +186,7 @@ header-link:visited {
   left: 2rem;
   width: 20rem;
   height: 0.1em;
-  background-color: purple;
+  background-color: #92dce5;
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
   transform: translate3d(-100%, 0, 0);
@@ -200,7 +199,7 @@ header-link:visited {
 }
 
 #topic-bar {
-  background-color: #b2a9a9;
+  background-color: #00a9a5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -245,7 +244,7 @@ header-link:visited {
   flex-direction: column;
 }
 .article-header {
-  margin: 7.5px;
+  margin: 12px;
   margin-bottom: 0px;
 }
 .article-body {
@@ -376,12 +375,13 @@ header-link:visited {
   background: lightcoral;
   width: 25px;
   height: 25px;
-  padding-bottom: 15px;
+
   border-radius: 50%;
-  line-height: 20px;
+  line-height: 15px;
+  vertical-align: middle;
   text-align: center;
   border: 2px solid black;
-  font-size: 20px;
+  font-size: 15px;
 }
 .close-icon:hover {
   background-color: rgb(233, 188, 188);
@@ -423,10 +423,16 @@ header-link:visited {
     grid-auto-rows: 200px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 5px;
+  }
+  .sort-div {
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .sort-box {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 6px;
   }
   #topic-bar {
     padding-left: 1rem;
@@ -437,8 +443,8 @@ header-link:visited {
     text-align: center;
   }
   .article {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: -3px;
+    margin-right: -3px;
   }
 }
 .error {
