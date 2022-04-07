@@ -4,7 +4,7 @@ Frontend hosted on : https://twallwin-nc-news.netlify.app
 
 Backend github repo : https://github.com/TWallwin/be-nc-news
 
-Backend hosted on : https://tom-nc-news.herokuapp.com/
+Backend hosted on : https://tom-nc-news.herokuapp.com/api
 
 NC-News is a forum/news website similar to reddit where users can view articles and comment on them. It is built using grid and flexbox so is responsive to mobile screens.
 
