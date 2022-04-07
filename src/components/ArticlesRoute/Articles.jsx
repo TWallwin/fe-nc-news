@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getAllArticles, getArticlesByTopic } from "../../api";
 import ArticleCard from "./ArticleCard";
 
@@ -40,7 +40,13 @@ export default function Articles() {
 
   if (articleError) {
     return (
-      <h1 className="error">{JSON.stringify(articleError)} - invalid path</h1>
+      <>
+        <h1 className="error">{JSON.stringify(articleError)} - invalid path</h1>{" "}
+        <Link to="/">
+          {" "}
+          <h1 className="error">Go Back!</h1>
+        </Link>
+      </>
     );
   }
   if (isLoading) {

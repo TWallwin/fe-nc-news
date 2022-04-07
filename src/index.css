@@ -233,16 +233,37 @@ header-link:visited {
   color: black;
 }
 /* article page style */
+.article-page {
+  display: flex;
+  justify-content: center;
+}
+.article {
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+.article-header {
+  margin: 7.5px;
+  margin-bottom: 0px;
+}
 .article-body {
   border-radius: 5px;
+  border: black solid 2px;
   padding: 6px;
   margin: 15px;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
   background-color: white;
 }
 .comments {
+  border: black solid 2px;
+
   border-radius: 5px;
   padding: 6px;
   margin: 15px;
+  margin-top: 7.5px;
   background-color: white;
 }
 .comment-card-info {
@@ -253,6 +274,7 @@ header-link:visited {
 .comment-card {
   padding: 5px;
   margin: 5px;
+  border-radius: 5px;
   border: solid black 2px;
 }
 .comment-body {
@@ -271,6 +293,7 @@ header-link:visited {
 }
 .create-comment-button {
   padding: 5px;
+  border-radius: 5px;
   border: black solid 2px;
 }
 .create-comment-button:hover {
@@ -283,6 +306,7 @@ header-link:visited {
   padding: 5px;
   padding-left: 9px;
   padding-right: 9px;
+  border-radius: 5px;
   border: black solid 2px;
   background-color: lightcoral;
 }
@@ -298,7 +322,13 @@ header-link:visited {
   margin-left: 5vw;
   margin-right: 5vw;
   border: black solid 2px;
+  border-radius: 5px;
+  width: 8rem;
   padding: 5px;
+  background-color: #b2a9a940;
+}
+.yes-no-buttons:hover {
+  background-color: #b2a9a970;
 }
 .popup-button-div {
   display: flex;
@@ -329,7 +359,7 @@ header-link:visited {
   max-height: 70vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: rgb(204, 231, 240);
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 20px;
   border: 3px solid black;
   overflow: auto;
@@ -343,24 +373,38 @@ header-link:visited {
   position: fixed;
   right: calc(15% - 30px);
   top: calc(100vh - 85vh - 33px);
-  background: #ededed;
+  background: lightcoral;
   width: 25px;
   height: 25px;
+  padding-bottom: 15px;
   border-radius: 50%;
   line-height: 20px;
   text-align: center;
-  border: 1px solid #999;
+  border: 2px solid black;
   font-size: 20px;
 }
+.close-icon:hover {
+  background-color: rgb(233, 188, 188);
+}
 .submit-comment-button {
+  border-radius: 5px;
   border: solid 2px black;
   width: 100px;
   margin: 20px;
+  margin-bottom: 0px;
+  background-color: #b2a9a940;
+}
+.submit-comment-button:hover {
+  background-color: #b2a9a970;
 }
 .new-comment-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.new-comment-input {
+  border-radius: 5px;
+  padding: 5px;
 }
 @media only screen and (max-width: 350px) {
   .topic-links {
@@ -391,6 +435,10 @@ header-link:visited {
   #home {
     padding-left: 0px;
     text-align: center;
+  }
+  .article {
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 .error {
