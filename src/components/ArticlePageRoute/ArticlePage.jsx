@@ -24,27 +24,27 @@ export default function ArticlePage() {
   if (articleError) {
     if (articleError.message.charAt(articleError.message.length - 1) === "4") {
       return (
-        <>
+        <div className="error-box">
           <h1 className="error">
             {JSON.stringify(articleError.message)} - not found
           </h1>{" "}
           <Link to="/">
             {" "}
-            <h1 className="error">Go Back!</h1>
+            <h1 className="error link">Go Back!</h1>
           </Link>
-        </>
+        </div>
       );
     }
     return (
-      <>
+      <div className="error-box">
         <h1 className="error">
           {JSON.stringify(articleError.message)} - invalid path
         </h1>{" "}
         <Link to="/">
           {" "}
-          <h1 className="error">Go Back!</h1>
+          <h1 className="error link">Go Back!</h1>
         </Link>
-      </>
+      </div>
     );
   }
   if (isLoading) {
