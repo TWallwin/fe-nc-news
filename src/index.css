@@ -451,6 +451,19 @@ header {
   margin: 20px;
   padding: 10px;
 }
+.link {
+  color: black;
+}
+.link:hover {
+  color: rgb(80, 80, 80);
+}
+.error-box {
+  background-color: white;
+  border-radius: 5px;
+  border: black 2px solid;
+  margin: 33px;
+  margin-top: 13px;
+}
 .comment-error {
   color: red;
 }
