@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://tom-nc-news.herokuapp.com";
+axios.defaults.baseURL = "https://nc-news-be.onrender.com/";
 
 export function getAllArticles(order, sortBy) {
   return axios
