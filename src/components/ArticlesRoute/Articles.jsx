@@ -4,7 +4,7 @@ import { getAllArticles, getArticlesByTopic } from "../../api";
 import ArticleCard from "./ArticleCard";
 
 export default function Articles() {
-  const { topic } = useParams();
+  let { topic } = useParams();
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setsortBy] = useState("created_at");
@@ -40,13 +40,19 @@ export default function Articles() {
 
   if (articleError) {
     return (
-      <>
-        <h1 className="error">{JSON.stringify(articleError)} - invalid path</h1>{" "}
-        <Link to="/">
+      <div className="error-box">
+        <h1 className="error">{JSON.stringify(articleError)} - invalid path</h1>
+        <Link
+          to="/"
+          onClick={() => {
+            topic = "";
+            setArticleError(false);
+          }}
+        >
           {" "}
-          <h1 className="error">Go Back!</h1>
+          <h1 className="error link">Go Back!</h1>
         </Link>
-      </>
+      </div>
     );
   }
   if (isLoading) {

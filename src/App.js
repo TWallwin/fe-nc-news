@@ -13,19 +13,23 @@ function App() {
           <Header />
           <div className="body-render">
             <Routes>
-              <Route path="/" element={<Articles />} />
-              <Route path="/articles/:topic/:id" element={<ArticlePage />} />
-              <Route path="/articles/:topic" element={<Articles />} />
+              <Route
+                exact
+                path="/articles/:topic/:id"
+                element={<ArticlePage />}
+              />
+              <Route exact path="/articles/:topic" element={<Articles />} />
+              <Route exact path="/" element={<Articles />} />
               <Route
                 path="/*"
                 element={
-                  <>
+                  <div className="error-box">
                     <h1 className="error">404:path not found</h1>
                     <Link to="/">
                       {" "}
-                      <h1 className="error">Go Back!</h1>
+                      <h1 className="error link">Go Back!</h1>
                     </Link>
-                  </>
+                  </div>
                 }
               />
             </Routes>
